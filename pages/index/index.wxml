@@ -4,8 +4,9 @@
     <image src='../../assets/images/add-32.png' bindtap="navigateNewCode"></image>
   </view>
   <view class="display">
-    <block wx:for="{{codeList}}" wx:key="{{uploader}}">
-    <textarea>{{item.code}}</textarea>
+    <block wx:for="{{codeList}}" wx:key="objectId">
+    <view class='code-display'>{{item.code}}</view>
+    <image src='../../assets/images/copy.png'></image>
     </block>
   </view>
 </view>

@@ -1,14 +1,14 @@
 //index.js
 //获取应用实例
+const AV = require('../../utils/av-live-query-weapp-min');
+const codeList = require('../../model/codeList');
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    codeList: [],
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    codeList: [{
+      code:'12123123123123123'
+    }]
   },
   // add new Code
   navigateNewCode: function() {
@@ -27,5 +27,14 @@ Page({
   },
   onLoad: function () {
 
+  },
+  onReady: function() {
+    // new AV.Query(codeList)
+    //   .find()
+    //   .then(codeList =>
+    //     this.setData({
+    //       codeList: codeList
+    //     }))
+    //   .catch(console.error)
   }
 })
