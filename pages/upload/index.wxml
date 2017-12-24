@@ -1,0 +1,11 @@
+<!--pages/upload/index.wxml.wxml-->
+<view class='container'>
+  <view class='add-text'>
+    <textarea placeholder='将你的口令消息复制到这'  placeholder-style='font-size:14px;'></textarea>
+  </view>
+  <view class='btn-group'>
+    <button type='primary'>确认</button>
+    <button type='warn'>取消</button>
+  </view>
+</view>
+
