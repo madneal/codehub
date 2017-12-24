@@ -6,9 +6,20 @@ const app = getApp()
 
 Page({
   data: {
-    codeList: [{
-      code:'12123123123123123'
-    }]
+    codeList: []
+  },
+  copyToClipboard: function(e) {
+    console.dir(e);
+    const code = e.target.dataset.code;
+    console.log(code);
+    wx.setClipboardData({
+      data: code,
+      success: function(res) {
+        wx.showToast({
+          title: '成功复制到剪切板',
+        })
+      }
+    })
   },
   // add new Code
   navigateNewCode: function() {
@@ -29,12 +40,19 @@ Page({
 
   },
   onReady: function() {
-    // new AV.Query(codeList)
-    //   .find()
-    //   .then(codeList =>
-    //     this.setData({
-    //       codeList: codeList
-    //     }))
-    //   .catch(console.error)
+    this.fetchData();
+  },
+  onPullDownRefresh: function() {
+    this.fetchData();
+    wx.stopPullDownRefresh();
+  },
+  fetchData: function() {
+    new AV.Query(codeList)
+      .find()
+      .then(codeList =>
+        this.setData({
+          codeList: codeList
+        }))
+      .catch(console.error)
   }
 })

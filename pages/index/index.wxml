@@ -5,8 +5,8 @@
   </view>
   <view class="display">
     <block wx:for="{{codeList}}" wx:key="objectId">
-    <view class='code-display'>{{item.code}}</view>
-    <image src='../../assets/images/copy.png'></image>
+    <view class='code-display'><text>{{item.code}}</text></view>
+    <image src='../../assets/images/copy.png' bindtap='copyToClipboard' data-code="{{item.code}}"></image>
     </block>
   </view>
 </view>

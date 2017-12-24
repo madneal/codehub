@@ -1,18 +1,18 @@
 /* pages/upload/index.wxml.wxss */
 .add-text textarea {
   border: 1px solid #eee;
-  position: relative;
-  top: -80px;
-  z-index: 999;
+  margin: 0 auto;
 }
 
 .btn-group {
   display: flex;
   flex-wrap: wrap; 
-  justify-content: flex-end;
   flex-direction: row;  
-  align-items: right; 
+  position: relative;
+  right: 8%;
 }
+
 button {
-  margin-right: 20rpx;
+  margin-top: 5rpx;
+  margin-right: 5rpx;
 }
