@@ -1,21 +1,46 @@
 // pages/upload/index.wxml.js
+const AV = require('../../utils/av-live-query-weapp-min');
+const codeList = require('../../model/codeList');
 const app = getApp()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     code: '',
-    uploader: '',
-    userInfo: {},
-    hasUserInfo: false,
-
+    codeList: []
+  },
+  updateCode: function({
+    detail: {
+      value
+    }
+  }) {
+    if (!value) {
+      return;
+    } else {
+      this.setData({
+        code: value
+      })
+    }
   },
   addNewCode: function() {
     let codeInfo = {};
-    codeInfo.uploader = uploader;
+    const this_ = this;
+    codeInfo.code = this.data.code;
+    new codeList({
+      code: this.data.code,
+      uploader: app.globalData.userInfo.nickName
+    }).save()
+    .then(function(res) {
+      console.log(res.id);
+      this_.setData({
+        code: ''
+      })
+    })
+    .catch(console.error);
+  },
+  cancel: function() {
+    this.setData({
+      code: ''
+    })
   },
   /**
    * 生命周期函数--监听页面加载

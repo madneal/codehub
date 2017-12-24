@@ -1,4 +1,11 @@
 //app.js
+const AV = require('./utils/av-live-query-weapp-min');
+
+AV.init({
+  appId: 'ydW6LEODn2zMeLM9X4JAlEsL-gzGzoHsz',
+  appKey: '7e6XxlGvWQ0dh7KUPWtiIlMs'
+})
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
