@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug GORM First",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/main.go",
+            "env": {
+                "DB_HOST": "localhost",
+                "DB_USER": "root",
+                "DB_PASSWORD": "password",
+                "DB_NAME": "gorm_first",
+                "DB_PORT": "3307",
+                "PORT": "8080"
+            },
+            "args": []
+        }
+    ]
+} 
