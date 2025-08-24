@@ -73,11 +73,11 @@ func UsersHandler(c *gin.Context) {
 	groupId := c.Query("group_id")
 
 	var group GroupModel
-	_ = DB.Debug().First(&group, groupId).Error
-	//if err != nil {
-	//	c.Status(404)
-	//	return
-	//}
+	err := DB.Debug().First(&group, groupId).Error
+	if err != nil {
+		c.Status(404)
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"group": group,
